@@ -18,6 +18,7 @@ package com.revenuecat.placeholderdemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,94 +41,108 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.revenuecat.placeholder.PlaceholderDefaults
 import com.revenuecat.placeholder.PlaceholderHighlight
+import com.revenuecat.placeholder.PlaceholderTransitions
 import com.revenuecat.placeholder.placeholder
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    setContent {
-      var enabled by remember { mutableStateOf(true) }
+        setContent {
+            var enabled by remember { mutableStateOf(true) }
 
-      LaunchedEffect(Unit) {
-        delay(5000)
-        enabled = false
-      }
+            LaunchedEffect(Unit) {
+                delay(5000)
+                enabled = false
+            }
 
-      Column(
-        modifier = Modifier
-          .fillMaxSize()
-          .padding(top = 10.dp),
-      ) {
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.shimmer,
-        )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 10.dp),
+            ) {
+                Item(
+                    enabled = enabled,
+                    highlight = PlaceholderDefaults.shimmer,
+                    transitionSpec = PlaceholderTransitions.fast
+                )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.fade,
-        )
+                Item(
+                    enabled = enabled,
+                    highlight = PlaceholderDefaults.fade,
+                    transitionSpec = PlaceholderTransitions.smooth
+                )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.pulse,
-        )
+                Item(
+                    enabled = enabled,
+                    highlight = PlaceholderDefaults.pulse,
+                    transitionSpec = PlaceholderTransitions.snappy
+                )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.lightReveal,
-        )
+                Item(
+                    enabled = enabled,
+                    highlight = PlaceholderDefaults.lightReveal,
+                    transitionSpec = PlaceholderTransitions.bouncy
+                )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.circularReveal,
-        )
-      }
+                Item(
+                    enabled = enabled,
+                    highlight = PlaceholderDefaults.circularReveal,
+                    transitionSpec = PlaceholderTransitions.tween(100)
+                )
+            }
+        }
     }
-  }
 }
 
 @Composable
-private fun Item(enabled: Boolean, highlight: PlaceholderHighlight) {
-  Row(
-    modifier = Modifier
-      .fillMaxWidth()
-      .padding(12.dp),
-  ) {
-    Box(
-      modifier = Modifier
-        .placeholder(
-          enabled = enabled,
-          highlight = highlight,
+private fun Item(
+    enabled: Boolean,
+    highlight: PlaceholderHighlight,
+    transitionSpec: () -> FiniteAnimationSpec<Float>
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+    ) {
+        Box(
+            modifier = Modifier
+                .placeholder(
+                    enabled = enabled,
+                    highlight = highlight,
+                    contentFadeTransitionSpec = transitionSpec,
+                    placeholderFadeTransitionSpec = transitionSpec
+                )
+                .background(Color.Green)
+                .size(64.dp)
+                .clip(CircleShape),
         )
-        .background(Color.Green)
-        .size(64.dp)
-        .clip(CircleShape),
-    )
 
-    Column(modifier = Modifier.padding(horizontal = 10.dp)) {
-      Text(
-        modifier = Modifier
-          .fillMaxWidth()
-          .padding(bottom = 6.dp)
-          .placeholder(
-            enabled = enabled,
-            highlight = highlight,
-          ),
-        text = "Hello",
-      )
+        Column(modifier = Modifier.padding(horizontal = 10.dp)) {
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 6.dp)
+                    .placeholder(
+                        enabled = enabled,
+                        highlight = highlight,
+                        contentFadeTransitionSpec = transitionSpec,
+                        placeholderFadeTransitionSpec = transitionSpec
+                    ),
+                text = "Hello",
+            )
 
-      Text(
-        modifier = Modifier
-          .fillMaxWidth()
-          .placeholder(
-            enabled = enabled,
-            highlight = highlight,
-          ),
-        text = "Hello1\nHello2\nHello3\n",
-      )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .placeholder(
+                        enabled = enabled,
+                        highlight = highlight,
+                    ),
+                text = "Hello1\nHello2\nHello3\n",
+            )
+        }
     }
-  }
 }
