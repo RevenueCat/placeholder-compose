@@ -21,7 +21,7 @@ jobs:
           distribution: adopt
           java-version: 17
       - name: Generate Dokka HTML docs
-        run: ./gradlew dokkaHtmlMultimodule
+        run: ./gradlew dokkaGenerateHtml
       - name: Deploy to GitHub pages
         uses: peaceiris/actions-gh-pages@v4
         with:
