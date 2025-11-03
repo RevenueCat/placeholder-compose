@@ -39,7 +39,7 @@ If you're using Version Catalog, you can configure the dependency by adding it t
 ```toml
 [versions]
 #...
-placeholder = "1.0.1"
+placeholder = "1.0.2"
 
 [libraries]
 #...
