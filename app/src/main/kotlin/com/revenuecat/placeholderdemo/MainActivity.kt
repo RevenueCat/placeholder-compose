@@ -18,6 +18,7 @@ package com.revenuecat.placeholderdemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.revenuecat.placeholder.PlaceholderDefaults
 import com.revenuecat.placeholder.PlaceholderHighlight
+import com.revenuecat.placeholder.PlaceholderTransitions
 import com.revenuecat.placeholder.placeholder
 import kotlinx.coroutines.delay
 
@@ -63,26 +65,31 @@ class MainActivity : ComponentActivity() {
         Item(
           enabled = enabled,
           highlight = PlaceholderDefaults.shimmer,
+          transitionSpec = PlaceholderTransitions.fast,
         )
 
         Item(
           enabled = enabled,
           highlight = PlaceholderDefaults.fade,
+          transitionSpec = PlaceholderTransitions.smooth,
         )
 
         Item(
           enabled = enabled,
           highlight = PlaceholderDefaults.pulse,
+          transitionSpec = PlaceholderTransitions.snappy,
         )
 
         Item(
           enabled = enabled,
           highlight = PlaceholderDefaults.lightReveal,
+          transitionSpec = PlaceholderTransitions.bouncy,
         )
 
         Item(
           enabled = enabled,
           highlight = PlaceholderDefaults.circularReveal,
+          transitionSpec = PlaceholderTransitions.tween(100),
         )
       }
     }
@@ -90,7 +97,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun Item(enabled: Boolean, highlight: PlaceholderHighlight) {
+private fun Item(
+  enabled: Boolean,
+  highlight: PlaceholderHighlight,
+  transitionSpec: () -> FiniteAnimationSpec<Float>,
+) {
   Row(
     modifier = Modifier
       .fillMaxWidth()
@@ -101,6 +112,8 @@ private fun Item(enabled: Boolean, highlight: PlaceholderHighlight) {
         .placeholder(
           enabled = enabled,
           highlight = highlight,
+          contentFadeTransitionSpec = transitionSpec,
+          placeholderFadeTransitionSpec = transitionSpec,
         )
         .background(Color.Green)
         .size(64.dp)
@@ -115,6 +128,8 @@ private fun Item(enabled: Boolean, highlight: PlaceholderHighlight) {
           .placeholder(
             enabled = enabled,
             highlight = highlight,
+            contentFadeTransitionSpec = transitionSpec,
+            placeholderFadeTransitionSpec = transitionSpec,
           ),
         text = "Hello",
       )

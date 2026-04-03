@@ -60,6 +60,20 @@ public abstract interface class com/revenuecat/placeholder/PlaceholderHighlight 
 	public abstract fun getAnimationSpec ()Landroidx/compose/animation/core/InfiniteRepeatableSpec;
 }
 
+public final class com/revenuecat/placeholder/PlaceholderTransitions {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/revenuecat/placeholder/PlaceholderTransitions;
+	public final fun custom (FF)Lkotlin/jvm/functions/Function0;
+	public static synthetic fun custom$default (Lcom/revenuecat/placeholder/PlaceholderTransitions;FFILjava/lang/Object;)Lkotlin/jvm/functions/Function0;
+	public final fun getBouncy ()Lkotlin/jvm/functions/Function0;
+	public final fun getFast ()Lkotlin/jvm/functions/Function0;
+	public final fun getNormal ()Lkotlin/jvm/functions/Function0;
+	public final fun getSlow ()Lkotlin/jvm/functions/Function0;
+	public final fun getSmooth ()Lkotlin/jvm/functions/Function0;
+	public final fun getSnappy ()Lkotlin/jvm/functions/Function0;
+	public final fun tween (I)Lkotlin/jvm/functions/Function0;
+}
+
 public final class com/revenuecat/placeholder/Pulse : com/revenuecat/placeholder/PlaceholderHighlight {
 	public static final field $stable I
 	public synthetic fun <init> (JLandroidx/compose/animation/core/InfiniteRepeatableSpec;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
