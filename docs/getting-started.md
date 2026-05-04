@@ -28,7 +28,7 @@ If you're using a version catalog, add the entry to `gradle/libs.versions.toml`:
 
 ```toml
 [versions]
-placeholder = "1.0.2"
+placeholder = "1.0.3"
 
 [libraries]
 compose-placeholder = { module = "com.revenuecat.purchases:placeholder", version.ref = "placeholder" }
