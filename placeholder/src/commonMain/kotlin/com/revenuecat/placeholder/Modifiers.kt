@@ -16,7 +16,6 @@
 package com.revenuecat.placeholder
 
 import androidx.compose.animation.core.FiniteAnimationSpec
-import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -85,17 +84,21 @@ import androidx.compose.ui.platform.LocalInspectionMode
 @Composable
 public fun Modifier.placeholder(
   enabled: Boolean = true,
-  color: Color = Color.Gray.copy(alpha = 0.35f),
-  shape: Shape = RectangleShape,
-  highlight: PlaceholderHighlight? = PlaceholderDefaults.fade,
-  placeholderFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
-  contentFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
+  color: Color = LocalPlaceholderTheme.current.color,
+  shape: Shape = LocalPlaceholderTheme.current.shape,
+  highlight: PlaceholderHighlight? = LocalPlaceholderTheme.current.highlight,
+  placeholderFadeTransitionSpec: () -> FiniteAnimationSpec<Float> =
+    LocalPlaceholderTheme.current.placeholderFadeTransitionSpec,
+  contentFadeTransitionSpec: () -> FiniteAnimationSpec<Float> =
+    LocalPlaceholderTheme.current.contentFadeTransitionSpec,
 ): Modifier {
+  val coordinator = LocalPlaceholderCoordinator.current
   val placeholder = rememberPlaceholder(
     visible = enabled,
     color = color,
     shape = shape,
     highlight = highlight,
+    coordinator = coordinator,
     placeholderFadeTransitionSpec = placeholderFadeTransitionSpec,
     contentFadeTransitionSpec = contentFadeTransitionSpec,
   )
@@ -121,8 +124,9 @@ internal fun rememberPlaceholder(
   color: Color,
   shape: Shape = RectangleShape,
   highlight: PlaceholderHighlight? = null,
-  placeholderFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
-  contentFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
+  coordinator: PlaceholderCoordinator? = null,
+  placeholderFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = PlaceholderTheme.Default.placeholderFadeTransitionSpec,
+  contentFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = PlaceholderTheme.Default.contentFadeTransitionSpec,
 ): Placeholder {
   val placeholder: Placeholder = remember(
     keys = arrayOf(
@@ -130,6 +134,7 @@ internal fun rememberPlaceholder(
       color,
       shape,
       highlight,
+      coordinator,
       placeholderFadeTransitionSpec,
       contentFadeTransitionSpec,
     ),
@@ -139,6 +144,7 @@ internal fun rememberPlaceholder(
       color = color,
       shape = shape,
       highlight = highlight,
+      coordinator = coordinator,
       placeholderFadeTransitionSpec = placeholderFadeTransitionSpec,
       contentFadeTransitionSpec = contentFadeTransitionSpec,
     )

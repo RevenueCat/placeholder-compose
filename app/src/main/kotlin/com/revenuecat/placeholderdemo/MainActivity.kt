@@ -22,11 +22,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -40,6 +47,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.revenuecat.placeholder.PlaceholderDefaults
 import com.revenuecat.placeholder.PlaceholderHighlight
+import com.revenuecat.placeholder.PlaceholderSurface
+import com.revenuecat.placeholder.ProvidePlaceholderTheme
+import com.revenuecat.placeholder.materialPlaceholderTheme
 import com.revenuecat.placeholder.placeholder
 import kotlinx.coroutines.delay
 
@@ -55,36 +65,78 @@ class MainActivity : ComponentActivity() {
         enabled = false
       }
 
-      Column(
-        modifier = Modifier
-          .fillMaxSize()
-          .padding(top = 10.dp),
-      ) {
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.shimmer,
-        )
+      MaterialTheme {
+        Surface(
+          modifier = Modifier.fillMaxSize(),
+          color = MaterialTheme.colorScheme.background,
+        ) {
+          Column(
+            modifier = Modifier
+              .fillMaxSize()
+              .verticalScroll(rememberScrollState())
+              .padding(top = 10.dp),
+          ) {
+            Text(
+              text = "Per-item highlights (independent timing)",
+              modifier = Modifier.padding(12.dp),
+              style = MaterialTheme.typography.titleMedium,
+            )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.fade,
-        )
+            Item(enabled = enabled, highlight = PlaceholderDefaults.shimmer)
+            Item(enabled = enabled, highlight = PlaceholderDefaults.fade)
+            Item(enabled = enabled, highlight = PlaceholderDefaults.pulse)
+            Item(enabled = enabled, highlight = PlaceholderDefaults.lightReveal)
+            Item(enabled = enabled, highlight = PlaceholderDefaults.circularReveal)
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.pulse,
-        )
+            Spacer(Modifier.height(16.dp))
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.lightReveal,
-        )
+            Text(
+              text = "Coordinated surface + Material theme",
+              modifier = Modifier.padding(12.dp),
+              style = MaterialTheme.typography.titleMedium,
+            )
 
-        Item(
-          enabled = enabled,
-          highlight = PlaceholderDefaults.circularReveal,
-        )
+            ProvidePlaceholderTheme(materialPlaceholderTheme()) {
+              PlaceholderSurface {
+                Column {
+                  repeat(5) { CoordinatedRow(enabled = enabled) }
+                }
+              }
+            }
+          }
+        }
       }
+    }
+  }
+}
+
+@Composable
+private fun CoordinatedRow(enabled: Boolean) {
+  Row(
+    modifier = Modifier
+      .fillMaxWidth()
+      .padding(horizontal = 12.dp, vertical = 6.dp),
+  ) {
+    Box(
+      modifier = Modifier
+        .size(48.dp)
+        .clip(CircleShape)
+        .placeholder(enabled = enabled, shape = CircleShape),
+    )
+    Column(modifier = Modifier.padding(horizontal = 10.dp)) {
+      Text(
+        text = "Title placeholder",
+        modifier = Modifier
+          .fillMaxWidth()
+          .padding(bottom = 6.dp)
+          .placeholder(enabled = enabled, shape = RoundedCornerShape(4.dp)),
+      )
+      Text(
+        text = "Subtitle placeholder line two\nand a third line",
+        modifier = Modifier
+          .fillMaxWidth()
+          .placeholder(enabled = enabled, shape = RoundedCornerShape(4.dp)),
+      )
     }
   }
 }

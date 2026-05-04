@@ -55,6 +55,7 @@ internal data class Placeholder(
   private val color: Color,
   private val shape: Shape = RectangleShape,
   private val highlight: PlaceholderHighlight? = null,
+  private val coordinator: PlaceholderCoordinator? = null,
   private val placeholderFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
   private val contentFadeTransitionSpec: () -> FiniteAnimationSpec<Float> = { spring() },
 ) {
@@ -81,8 +82,10 @@ internal data class Placeholder(
       animationSpec = contentFadeTransitionSpec(),
     )
 
-    // Coroutine for the infinite highlight (shimmer) animation
-    val shouldAnimateHighlight = visible && highlight?.animationSpec != null
+    // Coroutine for the infinite highlight (shimmer) animation. Skipped when a
+    // PlaceholderCoordinator is driving progress for the whole scope.
+    val shouldAnimateHighlight =
+      visible && highlight?.animationSpec != null && coordinator == null
     highlightProgress.stop()
     if (shouldAnimateHighlight) {
       highlightProgress.animateTo(
@@ -103,6 +106,8 @@ internal data class Placeholder(
   internal fun ContentDrawScope.draw() {
     val placeholderAlpha = this@Placeholder.placeholderAlpha.value
     val contentAlpha = this@Placeholder.contentAlpha.value
+    val highlightProgressValue =
+      coordinator?.progress?.value ?: this@Placeholder.highlightProgress.value
 
     // Draw content
     if (contentAlpha > 0.01f) {
@@ -122,7 +127,7 @@ internal data class Placeholder(
           shape = shape,
           color = color,
           highlight = highlight,
-          progress = highlightProgress.value,
+          progress = highlightProgressValue,
           lastOutline = lastOutline,
           lastLayoutDirection = lastLayoutDirection,
           lastSize = lastSize,
