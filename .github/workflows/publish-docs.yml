@@ -1,0 +1,61 @@
+name: Publish Docs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Build and deploy mkdocs + Dokka
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+
+      - name: Compute mkdocs cache id
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - name: Cache mkdocs assets
+        uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install mkdocs-material
+        run: pip install mkdocs-material
+
+      - name: Build Dokka HTML
+        run: ./gradlew :placeholder:dokkaGenerateHtml
+
+      - name: Build mkdocs site
+        run: mkdocs build --strict
+
+      - name: Merge Dokka into site/api
+        run: |
+          mkdir -p site/api
+          cp -r placeholder/build/dokka/html/. site/api/
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
