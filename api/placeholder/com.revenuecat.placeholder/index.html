@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.revenuecat.placeholder</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../index.html" tabindex="1">
+                    placeholder
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":placeholder/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":placeholder/commonMain"
+                                       data-filter=":placeholder/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    placeholder
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="placeholder::com.revenuecat.placeholder////PointingToDeclaration//2018785132">
+  <div class="breadcrumbs"><a href="../../index.html">placeholder</a><span class="delimiter">/</span><span class="current">com.revenuecat.placeholder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="1735549954%2FClasslikes%2F2018785132" anchor-label="CircularReveal" id="1735549954%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-circular-reveal/index.html"><span>Circular</span><wbr></wbr><span><span>Reveal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1735549954%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-circular-reveal/index.html">CircularReveal</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">A <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> that draws a circular reveal effect.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1419942674%2FClasslikes%2F2018785132" anchor-label="Fade" id="1419942674%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-fade/index.html"><span><span>Fade</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1419942674%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-fade/index.html">Fade</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">A <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> implementation that fades a solid color in and out.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2022947695%2FClasslikes%2F2018785132" anchor-label="LightReveal" id="-2022947695%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-light-reveal/index.html"><span>Light</span><wbr></wbr><span><span>Reveal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2022947695%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-light-reveal/index.html">LightReveal</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">A <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> that draws a liquid, flowing shimmer effect.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1074513841%2FClasslikes%2F2018785132" anchor-label="PlaceholderCoordinator" id="1074513841%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-placeholder-coordinator/index.html"><span>Placeholder</span><wbr></wbr><span><span>Coordinator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1074513841%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.html"><span class="token annotation builtin">Stable</span></a></div></div><span class="token keyword">class </span><a href="-placeholder-coordinator/index.html">PlaceholderCoordinator</a></div><div class="brief "><p class="paragraph">Drives a single shared <code class="lang-kotlin">0f..1f</code> highlight animation that every descendant placeholder reads from, so a list of skeleton items shimmers as one coordinated wave instead of each cell ticking on its own clock.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1320323951%2FClasslikes%2F2018785132" anchor-label="PlaceholderDefaults" id="1320323951%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-placeholder-defaults/index.html"><span>Placeholder</span><wbr></wbr><span><span>Defaults</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1320323951%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-placeholder-defaults/index.html">PlaceholderDefaults</a></div><div class="brief "><p class="paragraph">Contains the default <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> implementations for common placeholder effects.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1475567277%2FClasslikes%2F2018785132" anchor-label="PlaceholderHighlight" id="1475567277%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-placeholder-highlight/index.html"><span>Placeholder</span><wbr></wbr><span><span>Highlight</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1475567277%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">Defines the visual highlight animation applied to a placeholder.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1132347192%2FClasslikes%2F2018785132" anchor-label="PlaceholderTheme" id="1132347192%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-placeholder-theme/index.html"><span>Placeholder</span><wbr></wbr><span><span>Theme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1132347192%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">class </span><a href="-placeholder-theme/index.html">PlaceholderTheme</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Gray.copy(alpha = 0.35f)<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>RectangleShape<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>highlight<span class="token operator">: </span><a href="-placeholder-highlight/index.html">PlaceholderHighlight</a><span class="token operator">?</span><span class="token operator"> = </span>PlaceholderDefaults.fade<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>placeholderFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>{ spring() }<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>contentFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>{ spring() }</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Theme-level defaults for the <a href="placeholder.html">placeholder</a> modifier.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="183250043%2FClasslikes%2F2018785132" anchor-label="Pulse" id="183250043%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-pulse/index.html"><span><span>Pulse</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="183250043%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-pulse/index.html">Pulse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">A <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> that pulses the highlight color in and out.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1458819923%2FClasslikes%2F2018785132" anchor-label="Shimmer" id="1458819923%2FClasslikes%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-shimmer/index.html"><span><span>Shimmer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1458819923%2FClasslikes%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-shimmer/index.html">Shimmer</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>infiniteRepeatable(
+    animation = tween(durationMillis = 650, easing = LinearEasing),
+  )<span class="token punctuation">, </span></span><span class="parameter ">intensity<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span><span class="token constant">0.0f</span><span class="token punctuation">, </span></span><span class="parameter ">dropOff<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span><span class="token constant">0.5f</span><span class="token punctuation">, </span></span><span class="parameter ">tilt<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span><span class="token constant">20.0f</span></span></span><span class="token punctuation">)</span> : <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a></div><div class="brief "><p class="paragraph">A <a href="-placeholder-highlight/index.html">PlaceholderHighlight</a> that applies a shimmer effect.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-1328732048%2FProperties%2F2018785132" anchor-label="DefaultPlaceholderCoordinatorSpec" id="-1328732048%2FProperties%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-default-placeholder-coordinator-spec.html"><span>Default</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span>Coordinator</span><wbr></wbr><span><span>Spec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1328732048%2FProperties%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-default-placeholder-coordinator-spec.html">DefaultPlaceholderCoordinatorSpec</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The default coordinator spec — a 1700ms linear cycle that loosely matches <a href="-placeholder-defaults/shimmer.html">PlaceholderDefaults.shimmer</a>'s feel.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2099939201%2FProperties%2F2018785132" anchor-label="LocalPlaceholderCoordinator" id="2099939201%2FProperties%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-local-placeholder-coordinator.html"><span>Local</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span><span>Coordinator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2099939201%2FProperties%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-local-placeholder-coordinator.html">LocalPlaceholderCoordinator</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal.html">ProvidableCompositionLocal</a><span class="token operator">&lt;</span><a href="-placeholder-coordinator/index.html">PlaceholderCoordinator</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">CompositionLocal carrying the active <a href="-placeholder-coordinator/index.html">PlaceholderCoordinator</a>, or <code class="lang-kotlin">null</code> when no <a href="-placeholder-surface.html">PlaceholderSurface</a> wraps the current call site.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-702479864%2FProperties%2F2018785132" anchor-label="LocalPlaceholderTheme" id="-702479864%2FProperties%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-local-placeholder-theme.html"><span>Local</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span><span>Theme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-702479864%2FProperties%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-local-placeholder-theme.html">LocalPlaceholderTheme</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal.html">ProvidableCompositionLocal</a><span class="token operator">&lt;</span><a href="-placeholder-theme/index.html">PlaceholderTheme</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">CompositionLocal that supplies the active <a href="-placeholder-theme/index.html">PlaceholderTheme</a> to descendant <code class="lang-kotlin">Modifier.placeholder</code> calls. Defaults to <a href="-placeholder-theme/-companion/-default.html">PlaceholderTheme.Default</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-2141677475%2FFunctions%2F2018785132" anchor-label="materialPlaceholderTheme" id="-2141677475%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="material-placeholder-theme.html"><span>material</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span><span>Theme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2141677475%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/ReadOnlyComposable.html"><span class="token annotation builtin">ReadOnlyComposable</span></a></div></div><span class="token keyword">fun </span><a href="material-placeholder-theme.html"><span class="token function">materialPlaceholderTheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>MaterialTheme.colorScheme.surfaceVariant<span class="token punctuation">, </span></span><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>RectangleShape</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-placeholder-theme/index.html">PlaceholderTheme</a></div><div class="brief "><p class="paragraph">Builds a <a href="-placeholder-theme/index.html">PlaceholderTheme</a> derived from the current <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/MaterialTheme.html">MaterialTheme</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-527888928%2FFunctions%2F2018785132" anchor-label="placeholder" id="-527888928%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="placeholder.html"><span><span>placeholder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-527888928%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token punctuation">.</span><a href="placeholder.html"><span class="token function">placeholder</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>LocalPlaceholderTheme.current.color<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>LocalPlaceholderTheme.current.shape<span class="token punctuation">, </span></span><span class="parameter ">highlight<span class="token operator">: </span><a href="-placeholder-highlight/index.html">PlaceholderHighlight</a><span class="token operator">?</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.highlight<span class="token punctuation">, </span></span><span class="parameter ">placeholderFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.placeholderFadeTransitionSpec<span class="token punctuation">, </span></span><span class="parameter ">contentFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.contentFadeTransitionSpec</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a></div><div class="brief "><p class="paragraph">Draws a placeholder effect over content while it is loading.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1042150723%2FFunctions%2F2018785132" anchor-label="PlaceholderSurface" id="1042150723%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-placeholder-surface.html"><span>Placeholder</span><wbr></wbr><span><span>Surface</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1042150723%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="-placeholder-surface.html"><span class="token function">PlaceholderSurface</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">animationSpec<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteRepeatableSpec.html">InfiniteRepeatableSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>DefaultPlaceholderCoordinatorSpec<span class="token punctuation">, </span></span><span class="parameter ">content<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Wraps <a href="-placeholder-surface.html">content</a> in a scope where every <code class="lang-kotlin">Modifier.placeholder(...)</code> call shares a single <a href="-placeholder-coordinator/index.html">PlaceholderCoordinator</a>. Use this around a list, card grid, or any region where you want the shimmer to read as one synchronized motion.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="537247353%2FFunctions%2F2018785132" anchor-label="placeholderText" id="537247353%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="placeholder-text.html"><span>placeholder</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="537247353%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token punctuation">.</span><a href="placeholder-text.html"><span class="token function">placeholderText</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter ">lines<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span><span class="token punctuation">, </span></span><span class="parameter ">lastLineFraction<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span><span class="token constant">0.6f</span><span class="token punctuation">, </span></span><span class="parameter ">style<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.html">TextStyle</a><span class="token operator"> = </span>LocalTextStyle.current<span class="token punctuation">, </span></span><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>LocalPlaceholderTheme.current.color<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>LocalPlaceholderTheme.current.shape<span class="token punctuation">, </span></span><span class="parameter ">highlight<span class="token operator">: </span><a href="-placeholder-highlight/index.html">PlaceholderHighlight</a><span class="token operator">?</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.highlight<span class="token punctuation">, </span></span><span class="parameter ">placeholderFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.placeholderFadeTransitionSpec<span class="token punctuation">, </span></span><span class="parameter ">contentFadeTransitionSpec<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.html">FiniteAnimationSpec</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator">&gt;</span><span class="token operator"> = </span>LocalPlaceholderTheme.current.contentFadeTransitionSpec</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a></div><div class="brief "><p class="paragraph">Draws a multi-line text-shaped placeholder over content while it is loading.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1876028801%2FFunctions%2F2018785132" anchor-label="ProvidePlaceholderTheme" id="-1876028801%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-provide-placeholder-theme.html"><span>Provide</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span><span>Theme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1876028801%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="-provide-placeholder-theme.html"><span class="token function">ProvidePlaceholderTheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">theme<span class="token operator">: </span><a href="-placeholder-theme/index.html">PlaceholderTheme</a><span class="token punctuation">, </span></span><span class="parameter ">content<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Provides <a href="-provide-placeholder-theme.html">theme</a> to all <code class="lang-kotlin">Modifier.placeholder(...)</code> calls inside <a href="-provide-placeholder-theme.html">content</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-386312624%2FFunctions%2F2018785132" anchor-label="rememberMaterialPlaceholderTheme" id="-386312624%2FFunctions%2F2018785132" data-filterable-set=":placeholder/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":placeholder/commonMain" data-filterable-set=":placeholder/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remember-material-placeholder-theme.html"><span>remember</span><wbr></wbr><span>Material</span><wbr></wbr><span>Placeholder</span><wbr></wbr><span><span>Theme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-386312624%2FFunctions%2F2018785132"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":placeholder/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="remember-material-placeholder-theme.html"><span class="token function">rememberMaterialPlaceholderTheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>MaterialTheme.colorScheme.surfaceVariant<span class="token punctuation">, </span></span><span class="parameter ">highlightColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>RectangleShape</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-placeholder-theme/index.html">PlaceholderTheme</a></div><div class="brief "><p class="paragraph">Remembered variant of <a href="material-placeholder-theme.html">materialPlaceholderTheme</a> for cases where you want to capture the theme once and reuse it (e.g. across multiple <code class="lang-kotlin">ProvidePlaceholderTheme</code> boundaries).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
