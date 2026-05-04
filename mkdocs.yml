@@ -1,0 +1,64 @@
+site_name: Placeholder
+site_description: 'Fully customizable placeholder loading effects for Jetpack Compose and Kotlin Multiplatform.'
+site_author: 'RevenueCat'
+site_url: 'https://revenuecat.github.io/placeholder-compose/'
+edit_uri: 'tree/main/docs/'
+remote_branch: gh-pages
+
+docs_dir: docs
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'Getting Started': getting-started.md
+  - 'Basic Usage': usage.md
+  - 'Highlight Effects': highlights.md
+  - 'Custom Highlights': custom-highlights.md
+  - 'Transitions': transitions.md
+  - 'Theming': theming.md
+  - 'Coordinated Shimmer': coordinated.md
+  - 'Text Skeleton': text-skeleton.md
+  - 'Common Use Cases': use-cases.md
+  - 'API Reference': https://revenuecat.github.io/placeholder-compose/api/
+
+# Repository
+repo_name: 'placeholder-compose'
+repo_url: 'https://github.com/RevenueCat/placeholder-compose'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  icon:
+    logo: material/blur
+
+  palette:
+    primary: 'deep purple'
+    accent: 'deep purple'
+    scheme: slate
+
+  font:
+    text: 'Roboto'
+    code: 'JetBrains Mono'
+
+  features:
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - navigation.sections
+    - navigation.top
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
