@@ -42,6 +42,7 @@ public final class com/revenuecat/placeholder/LightReveal : com/revenuecat/place
 
 public final class com/revenuecat/placeholder/ModifiersKt {
 	public static final fun placeholder-TgFrcIs (Landroidx/compose/ui/Modifier;ZJLandroidx/compose/ui/graphics/Shape;Lcom/revenuecat/placeholder/PlaceholderHighlight;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;
+	public static final fun placeholderText-Yod850M (Landroidx/compose/ui/Modifier;ZIFLandroidx/compose/ui/text/TextStyle;JLandroidx/compose/ui/graphics/Shape;Lcom/revenuecat/placeholder/PlaceholderHighlight;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;
 }
 
 public final class com/revenuecat/placeholder/PlaceholderCoordinator {

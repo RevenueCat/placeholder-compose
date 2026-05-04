@@ -51,6 +51,7 @@ import com.revenuecat.placeholder.PlaceholderSurface
 import com.revenuecat.placeholder.ProvidePlaceholderTheme
 import com.revenuecat.placeholder.materialPlaceholderTheme
 import com.revenuecat.placeholder.placeholder
+import com.revenuecat.placeholder.placeholderText
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
@@ -101,6 +102,45 @@ class MainActivity : ComponentActivity() {
                 Column {
                   repeat(5) { CoordinatedRow(enabled = enabled) }
                 }
+              }
+            }
+
+            Spacer(Modifier.height(16.dp))
+
+            Text(
+              text = "Modifier.placeholderText (multi-line)",
+              modifier = Modifier.padding(12.dp),
+              style = MaterialTheme.typography.titleMedium,
+            )
+
+            ProvidePlaceholderTheme(materialPlaceholderTheme()) {
+              Column(modifier = Modifier.padding(horizontal = 12.dp)) {
+                Text(
+                  text = "",
+                  style = MaterialTheme.typography.bodyLarge,
+                  modifier = Modifier
+                    .fillMaxWidth()
+                    .placeholderText(
+                      enabled = enabled,
+                      lines = 3,
+                      style = MaterialTheme.typography.bodyLarge,
+                      shape = RoundedCornerShape(4.dp),
+                    ),
+                )
+                Spacer(Modifier.height(12.dp))
+                Text(
+                  text = if (enabled) "" else "Real subtitle text after loading completes.",
+                  style = MaterialTheme.typography.bodySmall,
+                  modifier = Modifier
+                    .fillMaxWidth()
+                    .placeholderText(
+                      enabled = enabled,
+                      lines = 2,
+                      lastLineFraction = 0.4f,
+                      style = MaterialTheme.typography.bodySmall,
+                      shape = RoundedCornerShape(4.dp),
+                    ),
+                )
               }
             }
           }

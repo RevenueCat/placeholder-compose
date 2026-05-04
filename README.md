@@ -362,6 +362,116 @@ Box(
 
 The `placeholderFadeTransitionSpec` controls how the placeholder fades in and out, while `contentFadeTransitionSpec` controls how the actual content appears.
 
+### Theming with PlaceholderTheme
+
+Instead of repeating `color`, `shape`, and `highlight` arguments at every call site, you can provide a `PlaceholderTheme` that supplies defaults for every `Modifier.placeholder` and `Modifier.placeholderText` call in its scope. Explicitly passed arguments always override the theme.
+
+```kotlin
+ProvidePlaceholderTheme(
+    PlaceholderTheme(
+        color = Color.LightGray,
+        shape = RoundedCornerShape(8.dp),
+        highlight = PlaceholderDefaults.shimmer,
+    )
+) {
+    // Every placeholder call inside this scope picks up the theme defaults
+    Text("...", modifier = Modifier.placeholder(enabled = isLoading))
+    Box(modifier = Modifier.size(80.dp).placeholder(enabled = isLoading))
+}
+```
+
+For Material 3 apps, `materialPlaceholderTheme()` builds a theme derived from the current `MaterialTheme.colorScheme`, so placeholders track the active light/dark scheme automatically.
+
+```kotlin
+ProvidePlaceholderTheme(materialPlaceholderTheme()) {
+    // Background uses MaterialTheme.colorScheme.surfaceVariant
+    // Highlight is a shimmer colored from MaterialTheme.colorScheme.onSurface
+    YourScreen()
+}
+```
+
+If you want to capture the theme once and reuse it across multiple `ProvidePlaceholderTheme` boundaries, use `rememberMaterialPlaceholderTheme()`.
+
+### Synchronized Shimmer with PlaceholderSurface
+
+By default, every placeholder runs its own animation clock — in a list of skeleton items the highlights drift out of phase, and the screen reads as a noisy patchwork of independently-shimmering boxes. Wrapping content in `PlaceholderSurface` shares a single `PlaceholderCoordinator` with every descendant so the shimmer reads as one coordinated wave across the entire region.
+
+```kotlin
+PlaceholderSurface {
+    LazyColumn {
+        items(20) {
+            UserListItem(user = null, isLoading = true) // every row shimmers in sync
+        }
+    }
+}
+```
+
+While inside a `PlaceholderSurface`, each highlight's own `animationSpec` is ignored — the surface's spec drives every placeholder. You can override the shared spec via the `animationSpec` parameter:
+
+```kotlin
+PlaceholderSurface(
+    animationSpec = infiniteRepeatable(
+        animation = tween(durationMillis = 2400, easing = LinearEasing),
+        repeatMode = RepeatMode.Restart,
+    )
+) {
+    // ... content ...
+}
+```
+
+`PlaceholderSurface` composes cleanly with `ProvidePlaceholderTheme` — wrap them in either order to get themed, coordinated placeholders for an entire screen.
+
+### Multi-line Text Skeleton with Modifier.placeholderText
+
+`Modifier.placeholder` always renders a single rectangle — fine for icons and avatars, but for paragraph-style text it produces one large block instead of separate line bars. `Modifier.placeholderText` solves this by drawing `lines` skeleton bars sized to the supplied `TextStyle`, with the last bar narrowed by `lastLineFraction` for a natural ragged ending.
+
+```kotlin
+Text(
+    text = body ?: "",
+    style = MaterialTheme.typography.bodyLarge,
+    modifier = Modifier
+        .fillMaxWidth()
+        .placeholderText(
+            enabled = body == null,
+            lines = 3,
+            lastLineFraction = 0.6f,
+            style = MaterialTheme.typography.bodyLarge,
+        ),
+)
+```
+
+While `enabled` is true the host is forced to reserve at least `lines × lineHeight` of vertical space, so empty (`Text("")`) or null composables still display the full skeleton. When `enabled` flips to false, the host collapses to its natural size and the bars fade away.
+
+`placeholderText` reads the same defaults from `LocalPlaceholderTheme` and participates in `PlaceholderSurface` coordination, so it composes cleanly with the patterns above:
+
+```kotlin
+ProvidePlaceholderTheme(materialPlaceholderTheme()) {
+    PlaceholderSurface {
+        Column {
+            Text(
+                text = title ?: "",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.placeholderText(
+                    enabled = title == null,
+                    lines = 1,
+                    style = MaterialTheme.typography.titleMedium,
+                ),
+            )
+            Text(
+                text = body ?: "",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.placeholderText(
+                    enabled = body == null,
+                    lines = 3,
+                    lastLineFraction = 0.5f,
+                    style = MaterialTheme.typography.bodyMedium,
+                ),
+            )
+        }
+    }
+}
+```
+
 ### Common Use Cases
 
 #### Loading a List of Items
