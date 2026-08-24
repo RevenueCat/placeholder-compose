@@ -1,4 +1,5 @@
 import com.revenuecat.placeholder.Configuration
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     id(libs.plugins.kotlin.multiplatform.get().pluginId)
@@ -41,6 +42,13 @@ kotlin {
     iosSimulatorArm64()
     macosX64()
     macosArm64()
+    js {
+        browser()
+    }
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
 
     sourceSets {
         val commonMain by getting {
@@ -52,7 +60,6 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.components.uiToolingPreview)
-                implementation(libs.compose.effects)
             }
         }
         getByName("androidDeviceTest").dependencies {

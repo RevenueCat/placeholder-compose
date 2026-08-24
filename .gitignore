@@ -65,3 +65,6 @@ freeline_project_description.json
 # mkdocs
 /site/
 .cache/
+
+# Npm/Yarn dependencies of wasm targets
+kotlin-js-store/
