@@ -113,7 +113,6 @@ internal data class TextPlaceholder(
   internal fun ContentDrawScope.draw() {
     val pAlpha = placeholderAlpha.value
     val cAlpha = contentAlpha.value
-    val progress = coordinator?.progress?.value ?: highlightProgress.value
 
     if (cAlpha > 0.01f) {
       paint.alpha = cAlpha
@@ -124,7 +123,14 @@ internal data class TextPlaceholder(
       }
     }
 
+    // The progress read stays inside this branch on purpose: it is an animating state, and
+    // observing it while the bars are hidden would invalidate the draw on every frame.
     if (pAlpha > 0.01f) {
+      val progress = if (highlight == null) {
+        0f
+      } else {
+        coordinator?.progress?.value ?: highlightProgress.value
+      }
       paint.alpha = pAlpha
       withLayer(paint) {
         drawBars(progress)

@@ -163,6 +163,8 @@ internal fun rememberPlaceholder(
     }
   }
 
+  coordinator?.SubscribeWhileDrawing(active = visible && highlight != null && !inPreviewMode)
+
   return placeholder
 }
 
@@ -285,6 +287,9 @@ internal fun rememberTextPlaceholder(
       textPlaceholder.stopAnimation()
     }
   }
+
+  coordinator?.SubscribeWhileDrawing(active = visible && highlight != null && !inPreviewMode)
+
   return textPlaceholder
 }
 
