@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placeholder Playground</title>
+    <meta
+      name="description"
+      content="Interactive playground for Placeholder, the customizable skeleton loading library for Jetpack Compose and Kotlin Multiplatform."
+    />
+    <style>
+      html, body { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; }
+      body { background: #16151a; }
+      #boot {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: #cfcadb;
+        font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        text-align: center;
+        padding: 24px;
+      }
+      #boot .title { color: #b79bff; font-weight: 600; }
+      #boot a { color: #b79bff; }
+    </style>
+  </head>
+  <body>
+    <div id="boot">
+      <div class="title">Placeholder Playground</div>
+      <div id="boot-message">Loading the WebAssembly build, this takes a moment on first visit.</div>
+    </div>
+    <script type="application/javascript" src="web.js"></script>
+    <script type="application/javascript">
+      // Kotlin removes #boot on its first frame. If that never happens, the most likely reason is
+      // a browser without the WebAssembly GC support Kotlin/Wasm needs, so say so plainly.
+      setTimeout(function () {
+        var message = document.getElementById('boot-message');
+        if (!message) return;
+        message.innerHTML =
+          'This demo is a Kotlin/Wasm build and needs a browser with WebAssembly GC: ' +
+          'Chrome 119+, Firefox 120+, or Safari 18.2+.<br /><br />' +
+          '<a href="https://revenuecat.github.io/placeholder-compose/">Back to the documentation</a>';
+      }, 20000);
+    </script>
+  </body>
+</html>
