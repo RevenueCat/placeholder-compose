@@ -12,6 +12,8 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
+    // The Kotlin js/wasmJs plugin registers the Node and Yarn distribution repositories on the
+    // project, so FAIL_ON_PROJECT_REPOS and PREFER_SETTINGS both break :kotlinNodeJsSetup.
     repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
