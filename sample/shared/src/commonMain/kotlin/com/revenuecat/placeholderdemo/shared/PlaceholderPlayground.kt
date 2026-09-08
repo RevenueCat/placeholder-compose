@@ -74,9 +74,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.revenuecat.placeholder.CircularReveal
 import com.revenuecat.placeholder.Fade
@@ -105,6 +107,8 @@ public fun PlaceholderPlayground() {
         Header(state)
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
         PlaygroundBody(state, modifier = Modifier.weight(1f))
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+        Footer()
       }
     }
   }
@@ -152,11 +156,50 @@ private fun Header(state: PlaygroundState) {
         color = MaterialTheme.colorScheme.onSurfaceVariant,
       )
     }
+    LinkButton("GitHub", RepoUrl)
     TextButton(onClick = { state.darkTheme = !state.darkTheme }) {
       Text(if (state.darkTheme) "Light" else "Dark")
     }
     TextButton(onClick = state::reset) { Text("Reset") }
   }
+}
+
+@Composable
+private fun LinkButton(label: String, url: String) {
+  val uriHandler = LocalUriHandler.current
+  TextButton(onClick = { uriHandler.openUri(url) }) { Text(label) }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun Footer() {
+  val uriHandler = LocalUriHandler.current
+  FlowRow(
+    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp),
+    horizontalArrangement = Arrangement.spacedBy(18.dp),
+    verticalArrangement = Arrangement.Center,
+  ) {
+    Text(
+      text = "Placeholder by RevenueCat",
+      style = MaterialTheme.typography.bodySmall,
+      color = MaterialTheme.colorScheme.onSurfaceVariant,
+      modifier = Modifier.padding(vertical = 6.dp),
+    )
+    FooterLink("GitHub", RepoUrl) { uriHandler.openUri(it) }
+    FooterLink("Documentation", DocsUrl) { uriHandler.openUri(it) }
+    FooterLink("API reference", ApiUrl) { uriHandler.openUri(it) }
+  }
+}
+
+@Composable
+private fun FooterLink(label: String, url: String, onClick: (String) -> Unit) {
+  Text(
+    text = label,
+    style = MaterialTheme.typography.bodySmall,
+    color = MaterialTheme.colorScheme.primary,
+    textDecoration = TextDecoration.Underline,
+    modifier = Modifier.clickable { onClick(url) }.padding(vertical = 6.dp),
+  )
 }
 
 // -- Controls -----------------------------------------------------------------------------------
@@ -723,6 +766,10 @@ private class PlaygroundState {
     }
   }
 }
+
+private const val RepoUrl = "https://github.com/RevenueCat/placeholder-compose"
+private const val DocsUrl = "https://revenuecat.github.io/placeholder-compose/"
+private const val ApiUrl = "https://revenuecat.github.io/placeholder-compose/api/"
 
 private val WideBreakpoint = 900.dp
 
