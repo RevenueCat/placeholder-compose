@@ -2,9 +2,10 @@
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat"/></a>
   <a href="https://github.com/revenuecat/placeholder-compose/actions/workflows/android.yml"><img alt="Build Status" src="https://github.com/revenuecat/placeholder-compose/actions/workflows/android.yml/badge.svg"/></a>
   <a href="https://revenuecat.github.io/placeholder-compose/"><img alt="Dokka" src="previews/dokka.svg"/></a>
+  <a href="https://revenuecat.github.io/placeholder-compose/demo/"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-Playground-7F52FF?logo=kotlin&logoColor=white"/></a>
 </p>
 
 <p align="center">
@@ -71,9 +72,21 @@ sourceSets {
 }
 ```
 
+## Supported Platforms
+
+| Platform | Targets | Since |
+|----------|---------|-------|
+| Android | `minSdk 23` | 1.0.0 |
+| JVM Desktop | `jvm("desktop")` | 1.0.0 |
+| iOS | `iosArm64`, `iosX64`, `iosSimulatorArm64` | 1.0.0 |
+| macOS | `macosArm64`, `macosX64` | 1.0.0 |
+| Web | `js` (browser), `wasmJs` (browser) | 1.0.4 |
+
+One dependency covers every target, and Gradle resolves the right artifact for you.
+
 ## Usage
 
-You can easily implement beautiful loading placeholders using the `placeholder` modifier. It offers intuitive customization options for colors, shapes, and highlight animations, allowing you to create a wide variety of loading effects. If you want to just directly dive into the sample codes, check out the [demo project](https://github.com/RevenueCat/placeholder-compose/tree/main/app).
+You can easily implement beautiful loading placeholders using the `placeholder` modifier. It offers intuitive customization options for colors, shapes, and highlight animations, allowing you to create a wide variety of loading effects. If you want to just directly dive into the sample codes, check out the [demo project](https://github.com/RevenueCat/placeholder-compose/tree/main/app), or tweak every option live in the [web playground](https://revenuecat.github.io/placeholder-compose/demo/) and copy the Kotlin it generates.
 
 ### Basic Usage
 

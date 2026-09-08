@@ -19,6 +19,7 @@ nav:
   - 'Coordinated Shimmer': coordinated.md
   - 'Text Skeleton': text-skeleton.md
   - 'Common Use Cases': use-cases.md
+  - 'Live Demo': https://revenuecat.github.io/placeholder-compose/demo/
   - 'API Reference': https://revenuecat.github.io/placeholder-compose/api/
 
 # Repository

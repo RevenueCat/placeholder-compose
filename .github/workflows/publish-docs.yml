@@ -53,9 +53,21 @@ jobs:
           mkdir -p site/api
           cp -r placeholder/build/dokka/html/. site/api/
 
+      - name: Build Wasm playground
+        run: ./gradlew :sample:web:wasmJsBrowserDistribution
+
+      - name: Merge playground into site/demo
+        run: |
+          mkdir -p site/demo
+          cp -r sample/web/build/dist/wasmJs/productionExecutable/. site/demo/
+          rm -f site/demo/*.map
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
+          # The playground ships an ~11 MB wasm bundle. Without this, every deploy that changes it
+          # adds another copy to the branch history forever.
+          force_orphan: true
