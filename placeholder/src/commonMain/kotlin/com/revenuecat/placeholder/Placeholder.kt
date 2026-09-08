@@ -106,8 +106,6 @@ internal data class Placeholder(
   internal fun ContentDrawScope.draw() {
     val placeholderAlpha = this@Placeholder.placeholderAlpha.value
     val contentAlpha = this@Placeholder.contentAlpha.value
-    val highlightProgressValue =
-      coordinator?.progress?.value ?: this@Placeholder.highlightProgress.value
 
     // Draw content
     if (contentAlpha > 0.01f) {
@@ -119,8 +117,15 @@ internal data class Placeholder(
       }
     }
 
-    // Draw placeholder
+    // Draw placeholder. The progress read stays inside this branch on purpose: it is an
+    // animating state, and observing it while the placeholder is hidden would invalidate
+    // the draw on every frame for nothing.
     if (placeholderAlpha > 0.01f) {
+      val highlightProgressValue = if (highlight == null) {
+        0f
+      } else {
+        coordinator?.progress?.value ?: this@Placeholder.highlightProgress.value
+      }
       paint.alpha = placeholderAlpha
       withLayer(paint) {
         lastOutline = drawPlaceholder(

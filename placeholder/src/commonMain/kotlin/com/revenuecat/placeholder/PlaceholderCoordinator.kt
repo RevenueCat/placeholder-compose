@@ -24,12 +24,18 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalInspectionMode
+import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Drives a single shared `0f..1f` highlight animation that every descendant
@@ -46,6 +52,26 @@ public class PlaceholderCoordinator internal constructor(
   internal val animationSpec: InfiniteRepeatableSpec<Float>,
 ) {
   internal val progress: Animatable<Float, AnimationVector1D> = Animatable(0f)
+
+  private var subscribers by mutableIntStateOf(0)
+
+  /**
+   * True while at least one visible, highlighted placeholder is drawing from [progress].
+   *
+   * The shared animation is infinite, so leaving it running pins the frame clock and burns
+   * CPU for as long as the surface is composed. Gating on this keeps an idle surface — one
+   * with no content, or whose placeholders have all finished loading — completely still.
+   */
+  internal val isActive: Boolean
+    get() = subscribers > 0
+
+  internal fun subscribe() {
+    subscribers++
+  }
+
+  internal fun unsubscribe() {
+    subscribers--
+  }
 
   internal suspend fun run() {
     progress.snapTo(0f)
@@ -88,9 +114,24 @@ public fun PlaceholderSurface(
   val coordinator = remember(animationSpec) { PlaceholderCoordinator(animationSpec) }
   val inPreview = LocalInspectionMode.current
   LaunchedEffect(coordinator) {
-    if (!inPreview) coordinator.run()
+    if (inPreview) return@LaunchedEffect
+    snapshotFlow { coordinator.isActive }.collectLatest { active ->
+      if (active) coordinator.run() else coordinator.progress.snapTo(0f)
+    }
   }
   CompositionLocalProvider(LocalPlaceholderCoordinator provides coordinator, content = content)
+}
+
+/**
+ * Counts this call site as a consumer of the coordinator's shared progress while [active],
+ * so [PlaceholderSurface] can hold the animation still whenever nothing is drawing from it.
+ */
+@Composable
+internal fun PlaceholderCoordinator.SubscribeWhileDrawing(active: Boolean) {
+  DisposableEffect(this, active) {
+    if (active) subscribe()
+    onDispose { if (active) unsubscribe() }
+  }
 }
 
 /**
