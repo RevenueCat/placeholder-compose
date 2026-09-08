@@ -34,6 +34,7 @@ android {
 dependencies {
     // placeholder
     implementation(project(":placeholder"))
+    implementation(project(":sample:shared"))
 
     // compose
     implementation(platform(libs.androidx.compose.bom))
