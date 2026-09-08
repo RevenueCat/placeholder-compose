@@ -58,15 +58,23 @@ kotlin {
 }
 ```
 
-## Supported Targets
+## Supported Platforms
 
-The library targets:
+| Platform | Targets | Since |
+|----------|---------|-------|
+| Android | `minSdk 23` | 1.0.0 |
+| JVM Desktop | `jvm("desktop")` | 1.0.0 |
+| iOS | `iosArm64`, `iosX64`, `iosSimulatorArm64` | 1.0.0 |
+| macOS | `macosArm64`, `macosX64` | 1.0.0 |
+| Web | `js` (browser), `wasmJs` (browser) | 1.0.4 |
 
-- **Android**: API 24+
-- **JVM Desktop**
-- **iOS**: x64, arm64, simulator arm64
-- **macOS**: x64, arm64
-- **Web**: JS (browser), Wasm JS (browser)
+One dependency covers every target, and Gradle resolves the right artifact for you.
+
+!!! tip "Try it in the browser"
+
+    The [web playground](https://revenuecat.github.io/placeholder-compose/demo/) is a Wasm build of
+    this library. Tweak every option live and copy the Kotlin it generates. Needs a browser with
+    WebAssembly GC: Chrome 119+, Firefox 120+, or Safari 18.2+.
 
 ## Next Steps
 

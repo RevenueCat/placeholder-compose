@@ -46,7 +46,7 @@ Text(
 
 When `enabled` is `true` the placeholder overlay appears with a smooth animation. When it flips to `false`, the actual content fades in.
 
-For a full walkthrough see [Getting Started](getting-started.md), or jump straight to [Basic Usage](usage.md).
+For a full walkthrough see [Getting Started](getting-started.md), or jump straight to [Basic Usage](usage.md). To try every option without writing any code first, open the [web playground](https://revenuecat.github.io/placeholder-compose/demo/).
 
 ## Technical Background
 

@@ -15,13 +15,20 @@
  */
 package com.revenuecat.placeholderdemo.web
 
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
-import com.revenuecat.placeholderdemo.shared.PlaceholderDemoApp
+import com.revenuecat.placeholderdemo.shared.PlaceholderPlayground
+import kotlinx.browser.document
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
   ComposeViewport {
-    PlaceholderDemoApp()
+    // index.html paints a splash while the wasm module downloads. Tear it down from here rather
+    // than watching the DOM for Compose's own element, which is an implementation detail.
+    LaunchedEffect(Unit) {
+      document.getElementById("boot")?.remove()
+    }
+    PlaceholderPlayground()
   }
 }

@@ -18,6 +18,7 @@ kotlin {
     sourceSets {
         webMain.dependencies {
             implementation(project(":sample:shared"))
+            implementation(libs.kotlinx.browser)
         }
     }
 }
