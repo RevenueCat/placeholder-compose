@@ -16,7 +16,7 @@
 - **Theming**: provide a `PlaceholderTheme` (or `materialPlaceholderTheme()`) once and every descendant call inherits the defaults
 - **Coordinated Shimmer**: wrap a region in `PlaceholderSurface` and every placeholder shimmers in lockstep — no more out-of-phase noise across a list
 - **Multi-line Text Skeleton**: `Modifier.placeholderText(lines = 3, ...)` renders text-shaped bars matching your `TextStyle`
-- **Kotlin Multiplatform**: Android, JVM Desktop, iOS, and macOS targets
+- **Kotlin Multiplatform**: Android, JVM Desktop, iOS, macOS, and Web (JS/Wasm) targets
 
 ## Quick Start
 

@@ -66,6 +66,7 @@ The library targets:
 - **JVM Desktop**
 - **iOS**: x64, arm64, simulator arm64
 - **macOS**: x64, arm64
+- **Web**: JS (browser), Wasm JS (browser)
 
 ## Next Steps
 
